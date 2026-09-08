@@ -4,21 +4,18 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Divyanshu Suman | Senior Software Engineer</title>
-  <meta name="description" content="Senior Software Engineer specializing in Distributed Systems, Backend Architecture, and FinTech Infrastructure." />
+  <meta name="description" content="Senior Software Engineer building backend, distributed systems, and FinTech infrastructure." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #0f172a;
-      --surface: #1e293b;
-      --surface-border: #334155;
-      --text: #f8fafc;
-      --text-muted: #94a3b8;
-      --accent: #38bdf8;
-      --accent-hover: #0ea5e9;
-      --badge-bg: #1e293b;
-      --badge-border: #475569;
+      --bg-color: #1a1b1e;
+      --sidebar-border: #2c2e33;
+      --text-primary: #f8f9fa;
+      --text-secondary: #a6a7ab;
+      --accent-color: #ff6b6b;
+      --accent-hover: #fa5252;
     }
 
     * {
@@ -29,419 +26,256 @@
 
     body {
       font-family: 'Inter', system-ui, -apple-system, sans-serif;
-      background-color: var(--bg);
-      color: var(--text);
+      background-color: var(--bg-color);
+      color: var(--text-primary);
       line-height: 1.6;
-      padding: 2.5rem 1rem;
-    }
-
-    .container {
-      max-width: 860px;
-      margin: 0 auto;
-    }
-
-    /* Header / Hero */
-    .header {
       display: flex;
       flex-direction: column;
-      align-items: center;
-      text-align: center;
-      gap: 1.5rem;
-      padding-bottom: 2.5rem;
-      border-bottom: 1px solid var(--surface-border);
+      min-height: 100vh;
     }
 
-    @media (min-width: 640px) {
-      .header {
-        flex-direction: row;
-        text-align: left;
-        align-items: center;
-      }
-    }
-
-    .avatar {
-      width: 140px;
-      height: 140px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 3px solid var(--accent);
-      box-shadow: 0 4px 20px rgba(56, 189, 248, 0.25);
-    }
-
-    .header-content h1 {
-      font-size: 2.25rem;
-      font-weight: 700;
-      color: #fff;
-      letter-spacing: -0.025em;
-    }
-
-    .header-content .subtitle {
-      font-size: 1.1rem;
-      color: var(--accent);
-      font-weight: 500;
-      margin-top: 0.25rem;
-    }
-
-    .contact-links {
+    /* Layout */
+    .layout {
       display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-      margin-top: 0.85rem;
-      justify-content: center;
+      flex-direction: column;
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 100%;
     }
 
-    @media (min-width: 640px) {
-      .contact-links {
-        justify-content: flex-start;
+    @media (min-width: 768px) {
+      .layout {
+        flex-direction: row;
       }
     }
 
-    .contact-links a, .contact-links span {
-      font-size: 0.9rem;
-      color: var(--text-muted);
-      text-decoration: none;
-      display: inline-flex;
+    /* Sidebar */
+    .sidebar {
+      padding: 2.5rem 2rem;
+      border-bottom: 1px solid var(--sidebar-border);
+      flex: 0 0 260px;
+    }
+
+    @media (min-width: 768px) {
+      .sidebar {
+        border-bottom: none;
+        border-right: 1px solid var(--sidebar-border);
+        min-height: 100vh;
+        position: sticky;
+        top: 0;
+      }
+    }
+
+    .brand {
+      font-weight: 700;
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+      display: flex;
       align-items: center;
-      gap: 0.35rem;
+      gap: 0.5rem;
+    }
+
+    .sidebar-intro {
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      margin-bottom: 2.5rem;
+      line-height: 1.5;
+    }
+
+    .sidebar-intro strong {
+      color: var(--accent-color);
+    }
+
+    .nav-links {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-bottom: 3rem;
+    }
+
+    .nav-links a {
+      color: var(--text-primary);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.95rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
       transition: color 0.2s;
     }
 
-    .contact-links a:hover {
-      color: var(--accent);
+    .nav-links a:hover {
+      color: var(--accent-color);
     }
 
-    /* Section Styles */
-    section {
-      padding: 2.5rem 0;
-      border-bottom: 1px solid var(--surface-border);
-    }
-
-    section:last-of-type {
-      border-bottom: none;
-    }
-
-    .section-title {
-      font-size: 1.25rem;
-      font-weight: 600;
-      color: #fff;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      margin-bottom: 1.5rem;
+    .social-links {
       display: flex;
-      align-items: center;
-      gap: 0.6rem;
+      gap: 1rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--sidebar-border);
     }
 
-    .section-title::before {
-      content: "";
-      width: 4px;
-      height: 18px;
-      background-color: var(--accent);
-      border-radius: 2px;
+    .social-links a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 1.2rem;
+      transition: color 0.2s;
     }
 
-    /* Summary */
-    .summary-text {
-      color: #cbd5e1;
-      font-size: 1rem;
-      line-height: 1.7;
+    .social-links a:hover {
+      color: var(--text-primary);
     }
 
-    /* Skills Grid */
-    .skills-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 1.25rem;
+    /* Main Content */
+    .content {
+      padding: 3rem 2rem;
+      flex: 1;
+      max-width: 800px;
     }
 
-    @media (min-width: 640px) {
-      .skills-grid {
-        grid-template-columns: repeat(2, 1fr);
+    @media (min-width: 768px) {
+      .content {
+        padding: 5rem 4rem;
       }
     }
 
-    .skill-card {
-      background-color: var(--surface);
-      border: 1px solid var(--surface-border);
-      border-radius: 8px;
-      padding: 1.2rem;
-    }
-
-    .skill-card h4 {
-      font-size: 0.95rem;
-      color: var(--accent);
-      margin-bottom: 0.75rem;
-    }
-
-    .badge-wrap {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.45rem;
-    }
-
-    .badge {
-      background: var(--badge-bg);
-      border: 1px solid var(--badge-border);
-      color: #cbd5e1;
-      padding: 0.2rem 0.6rem;
-      border-radius: 4px;
-      font-size: 0.8rem;
-    }
-
-    /* Experience Card */
-    .job-card {
-      margin-bottom: 2rem;
-    }
-
-    .job-card:last-child {
-      margin-bottom: 0;
-    }
-
-    .job-header {
-      display: flex;
-      flex-direction: column;
+    h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
       margin-bottom: 0.5rem;
     }
 
+    .subtitle {
+      font-size: 1.25rem;
+      color: var(--text-secondary);
+      margin-bottom: 3rem;
+      font-weight: 400;
+    }
+
+    h2 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 2rem;
+      color: var(--text-primary);
+    }
+
+    /* Timeline */
+    .timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      margin-bottom: 3rem;
+    }
+
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.5rem;
+    }
+
     @media (min-width: 640px) {
-      .job-header {
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: baseline;
+      .timeline-item {
+        grid-template-columns: 100px 1fr;
+        gap: 2rem;
       }
     }
 
-    .job-role {
-      font-size: 1.15rem;
-      font-weight: 600;
-      color: #fff;
-    }
-
-    .job-company {
-      color: var(--accent);
-      font-weight: 500;
-    }
-
-    .job-meta {
-      font-size: 0.85rem;
-      color: var(--text-muted);
-      margin-top: 0.2rem;
-    }
-
-    .job-desc {
+    .timeline-year {
+      color: var(--text-secondary);
       font-size: 0.9rem;
-      color: #94a3b8;
-      font-style: italic;
-      margin-bottom: 0.75rem;
+      font-family: monospace;
+      padding-top: 0.2rem;
     }
 
-    ul.experience-points {
-      list-style-type: none;
-      padding-left: 0;
+    .timeline-desc {
+      color: var(--text-primary);
+      font-size: 1rem;
     }
 
-    ul.experience-points li {
-      position: relative;
-      padding-left: 1.25rem;
-      margin-bottom: 0.6rem;
-      font-size: 0.925rem;
-      color: #cbd5e1;
-    }
-
-    ul.experience-points li::before {
-      content: "•";
-      position: absolute;
-      left: 0.25rem;
-      color: var(--accent);
-      font-weight: bold;
-    }
-
-    /* Education & Leadership */
-    .edu-item, .lead-item {
-      margin-bottom: 1.25rem;
-    }
-
-    .edu-title {
+    .highlight {
+      color: var(--accent-color);
       font-weight: 600;
-      color: #fff;
+    }
+    
+    .timeline-desc a {
+      color: var(--accent-color);
+      text-decoration: none;
     }
 
-    .edu-sub {
-      color: var(--text-muted);
-      font-size: 0.9rem;
+    .timeline-desc a:hover {
+      text-decoration: underline;
     }
 
-    /* Footer */
-    footer {
-      text-align: center;
+    /* Footer Blurb */
+    .also-blurb {
+      margin-top: 4rem;
       padding-top: 2rem;
-      color: var(--text-muted);
-      font-size: 0.85rem;
+      border-top: 1px solid var(--sidebar-border);
+      font-size: 1rem;
+      color: var(--text-secondary);
     }
   </style>
 </head>
 <body>
 
-  <div class="container">
-    <!-- Header / Hero Section -->
-    <header class="header">
-      <!-- Ensure profile.jpg is placed in the root of your GitHub repo -->
-      <img src="profile.jpg" alt="Divyanshu Suman" class="avatar" onerror="this.src='https://ui-avatars.com/api/?name=Divyanshu+Suman&size=200&background=1e293b&color=38bdf8'" />
-      
-      <div class="header-content">
-        <h1>Divyanshu Suman</h1>
-        <div class="subtitle">Senior Software Engineer | Backend, Distributed Systems & FinTech Infrastructure</div>
-        
-        <div class="contact-links">
-          <span>📍 Bengaluru, India</span>
-          <a href="mailto:imdivyanshu1010@gmail.com">✉️ imdivyanshu1010@gmail.com</a>
-          <a href="tel:+919887428295">📞 (+91) 9887428295</a>
-          <a href="https://linkedin.com/in/divyanshu-suman-7749bb121" target="_blank" rel="noopener">🔗 LinkedIn</a>
-        </div>
+  <div class="layout">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="brand">
+        💾 divi10.dev
       </div>
-    </header>
-
-    <!-- Professional Summary -->
-    <section>
-      <h2 class="section-title">Professional Summary</h2>
-      <p class="summary-text">
-        High-impact Senior Software Engineer with extensive experience architecting scalable backend systems, high-throughput microservices, and automated FinTech and accounting infrastructure. Proven track record at Zeni and Glance leading core transaction matching algorithms, multi-agent AI derivation systems, ledger automation pipelines, and consumer platforms serving 100M+ DAUs. Expert in Python, Java, distributed caching, cloud infrastructure, and database optimization.
+      <p class="sidebar-intro">
+        I'm <strong>Divyanshu</strong>, senior software engineer and backend architect. This is my digital space.
       </p>
-    </section>
+      
+      <nav class="nav-links">
+        <a href="#projects">📁 Projects</a>
+        <a href="#about">👤 About me</a>
+        <a href="Divyanshu_Suman_Resume.pdf" target="_blank">📄 Resume</a>
+      </nav>
 
-    <!-- Technical Skills -->
-    <section>
-      <h2 class="section-title">Technical Skills</h2>
-      <div class="skills-grid">
-        <div class="skill-card">
-          <h4>Languages & Core</h4>
-          <div class="badge-wrap">
-            <span class="badge">Python</span>
-            <span class="badge">Java</span>
-            <span class="badge">SQL (PostgreSQL, MySQL)</span>
-            <span class="badge">Shell Scripting (Bash)</span>
+      <div class="social-links">
+        <a href="mailto:imdivyanshu1010@gmail.com" title="Email">✉️</a>
+        <a href="https://linkedin.com/in/divyanshu-suman-7749bb121" title="LinkedIn">🔗</a>
+        <a href="https://github.com/divi10" title="GitHub">🐙</a>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="content">
+      <h1>Hey, I'm Divyanshu!</h1>
+      <p class="subtitle">Senior software engineer, distributed systems builder, FinTech enthusiast.</p>
+
+      <h2>A brief timeline</h2>
+
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-year">2022–now</div>
+          <div class="timeline-desc">
+            <span class="highlight">Senior Software Engineer at Zeni</span>: Architected multi-agent LLM derivation pipelines and automated Journal Entry scheduling for scalable FinTech infrastructure. Optimized reconciliation engines handling multi-source bank feeds.
           </div>
         </div>
 
-        <div class="skill-card">
-          <h4>FinTech & AI Tools</h4>
-          <div class="badge-wrap">
-            <span class="badge">QuickBooks Online API/SDK</span>
-            <span class="badge">Plaid API</span>
-            <span class="badge">Google ADK</span>
-            <span class="badge">Gemini</span>
-            <span class="badge">Pinecone Vector DB</span>
-            <span class="badge">OpenAI API</span>
-            <span class="badge">Statsig</span>
-            <span class="badge">Mixpanel</span>
+        <div class="timeline-item">
+          <div class="timeline-year">2019–2022</div>
+          <div class="timeline-desc">
+            <span class="highlight">Software Engineer at Glance</span>: Engineered core integration frameworks, impression capping pipelines, and microservices scaling to over 100M+ DAUs.
           </div>
         </div>
 
-        <div class="skill-card">
-          <h4>Databases & Caching</h4>
-          <div class="badge-wrap">
-            <span class="badge">PostgreSQL</span>
-            <span class="badge">Google Cloud Datastore (NDB)</span>
-            <span class="badge">MongoDB</span>
-            <span class="badge">MySQL</span>
-            <span class="badge">Redis</span>
-          </div>
-        </div>
-
-        <div class="skill-card">
-          <h4>Cloud, DevOps & Architecture</h4>
-          <div class="badge-wrap">
-            <span class="badge">GCP (Cloud Run, Cloud Build, Tasks, Pub/Sub)</span>
-            <span class="badge">Docker</span>
-            <span class="badge">Kubernetes</span>
-            <span class="badge">CI/CD (GitHub Actions)</span>
-            <span class="badge">Microservices</span>
-            <span class="badge">Event-Driven Architecture</span>
-            <span class="badge">Multi-Agent LLMs & RAG</span>
+        <div class="timeline-item">
+          <div class="timeline-year">2015–2019</div>
+          <div class="timeline-desc">
+            <span class="highlight">IIT Roorkee</span>: Earned my B.Tech in Electronics & Communication. Led a 20-member team as Head of Sponsorship for the annual cultural fest.
           </div>
         </div>
       </div>
-    </section>
 
-    <!-- Professional Experience -->
-    <section>
-      <h2 class="section-title">Professional Experience</h2>
-
-      <!-- Zeni -->
-      <div class="job-card">
-        <div class="job-header">
-          <div>
-            <span class="job-role">Senior Software Engineer</span> · <span class="job-company">Zeni</span>
-          </div>
-          <div class="job-meta">Oct 2022 – May 2026 | Remote</div>
-        </div>
-        <div class="job-desc">AI-powered finance concierge automating bookkeeping, accounting, and financial operations for startups.</div>
-        <ul class="experience-points">
-          <li><strong>AI-Driven Schedule Derivation & CoT:</strong> Implemented multi-agent LLM derivation pipelines (Google ADK/Gemini) paired with Pinecone RAG and fallback waterfall retrieval to automate schedule classification, parameter inference, and customer-facing Chain-of-Thought reasoning with automated validation cascading.</li>
-          <li><strong>Journal Entry (JE) Automation:</strong> Architected and deployed end-to-end automated Journal Entry scheduling, accrual reversal, and fixed/intangible asset depreciation pipelines; engineered background crons, dynamic balance reconciliation, and one-time recovery tasks to fix historical schedules across active ledgers.</li>
-          <li><strong>Reconciliation Engine & Matching Algorithms:</strong> Built and optimized the core transaction matching engine, cutting manual processing time by an estimated 10 hours per company monthly while bolstering accuracy across multi-source bank feeds.</li>
-          <li><strong>RBAC & Infrastructure Security:</strong> Configured comprehensive Role-Based Access Control (RBAC) scopes across 16 microservices for task managers, treasury, and read-only customer roles, enforcing strict data isolation and compliance.</li>
-        </ul>
+      <div class="also-blurb">
+        <span class="highlight">Also:</span> weight-lifter, motorcycle rider, white water rafter, pizza enthusiast, and AI tinkerer.
       </div>
-
-      <!-- Glance -->
-      <div class="job-card">
-        <div class="job-header">
-          <div>
-            <span class="job-role">Software Development Engineer II & I</span> · <span class="job-company">Glance (InMobi Group)</span>
-          </div>
-          <div class="job-meta">Nov 2019 – Mar 2022 | Bengaluru, India</div>
-        </div>
-        <ul class="experience-points">
-          <li><strong>One-Click Install Architecture:</strong> Designed and implemented the core secure integration framework enabling 3rd-party advertisers to deliver one-click app installs with complete analytics and security isolation.</li>
-          <li><strong>Impression Capping Pipeline:</strong> Engineered an end-to-end online-offline capping system to regulate advertiser impression frequency dynamically based on budget constraints and campaign pacing.</li>
-          <li><strong>Data Pipeline & Tooling:</strong> Built an automated app-ownership data portal and ETL pipeline, saving product teams ~2 hours of manual analysis per week; mentored 10+ junior engineers.</li>
-          <li><strong>Scale & Microservices (100M+ DAUs):</strong> Developed and maintained backend microservices spanning 7 core services deployed on Kubernetes, delivering low-latency features to over 100M daily active users.</li>
-          <li><strong>DevOps & Testing Environments:</strong> Provisioned dedicated isolated testing environments and CI tooling for developers, improving release velocity and test reliability.</li>
-        </ul>
-      </div>
-
-      <!-- Roposo -->
-      <div class="job-card">
-        <div class="job-header">
-          <div>
-            <span class="job-role">Software Development Engineer I</span> · <span class="job-company">Roposo</span>
-          </div>
-          <div class="job-meta">Jun 2019 – Nov 2019 | Gurugram, India</div>
-        </div>
-        <ul class="experience-points">
-          <li><strong>Notification Stack:</strong> Engineered and maintained 3 high-throughput notification microservices delivering timely push notifications to millions of users.</li>
-          <li><strong>Infrastructure Cost Optimization:</strong> Migrated daily banner notification cron jobs to cloud spot instances, significantly reducing infrastructure costs while preserving system reliability.</li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- Education -->
-    <section>
-      <h2 class="section-title">Education</h2>
-      <div class="edu-item">
-        <div class="edu-title">Indian Institute of Technology (IIT) Roorkee</div>
-        <div class="edu-sub">Bachelor of Technology (B.Tech) in Electronics & Communication Engineering (2015 – 2019)</div>
-      </div>
-      <div class="edu-item">
-        <div class="edu-title">Regional Secondary School, Madhubani</div>
-        <div class="edu-sub">Higher Secondary Certificate (Class 12th) – Major in Mathematics, Physics & Chemistry | Score: 93.4%</div>
-      </div>
-    </section>
-
-    <!-- Key Accomplishments & Leadership -->
-    <section>
-      <h2 class="section-title">Leadership & Accomplishments</h2>
-      <ul class="experience-points">
-        <li><strong>Head of Sponsorship (Thomso, IIT Roorkee):</strong> Led a 20-member team for IIT Roorkee's annual cultural fest; individually raised INR 4+ Lakhs in corporate sponsorship.</li>
-        <li><strong>Leadership & Tech Clubs:</strong> Executive Member, Program Management Group (Cultural Council 2018–19) & Member, Models and Robotics Section (IIT Roorkee 2017–18).</li>
-      </ul>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-      <p>© 2026 Divyanshu Suman. Hosted with GitHub Pages.</p>
-    </footer>
+    </main>
   </div>
 
 </body>
